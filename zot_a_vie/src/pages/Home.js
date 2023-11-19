@@ -7,7 +7,7 @@ export default function Home () {
         const currentVisits = localStorage.getItem('totalVisits') || 0;
         const newVisits = parseInt(currentVisits, 10) + 1;
         localStorage.setItem('totalVisits', newVisits.toString());
-      }, []);
+    }, []);
     return (
     <div>
         <Header />

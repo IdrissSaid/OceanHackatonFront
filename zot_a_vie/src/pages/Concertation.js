@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MapComponent from '../components/Map/Map.js';
 import ButtonScroll from "../components/ButtonScroll";
 import Button from "../components/Button";
@@ -30,12 +30,12 @@ function Star({ initialRating = 0, onRatingChange })
 }
 
 function Vote({children}) {
-    const [vote, setVote] = useState(false);
+    const [vote, setVote] = useState();
     const navigate = useNavigate();
 
-    const sendVote = async () => {
+    const sendVote = () => {
         try {
-        const response = await fetch('http//localhost:8080/vote/submit', {
+        const response = fetch('http://localhost:8080/vote/submit', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -50,15 +50,11 @@ function Vote({children}) {
         } else {
             console.log('Vote sent successfully');
         }
+        navigate('/')
         } catch (error) {
             console.error('Error sending vote:', error);
         }
     };
-
-    const go = () => {
-        sendVote();
-        navigate('/')
-    }
 
     return (
         <div className=' w-full flex items-center flex-col h-full'>
@@ -68,12 +64,14 @@ function Vote({children}) {
                 <h4 className=' my-3'>Budget {<Star />}</h4>
             </div>
             <div className='py-5 flex items-center justify-center flex-row gap-2'>
-                <Button onClick={setVote(true)}>Oui</Button>
-                <Button onClick={setVote(null)}>Blanc</Button>
-                <Button onClick={setVote(false)}>Non</Button>
+                { vote === true ? <Button hover={true} onClick={() => {setVote(true)}}>Oui</Button> : <Button onClick={() => {setVote(true)}}>Oui</Button>}
+                { vote === null ? <Button hover={true} onClick={() => {setVote(null)}}>Blanc</Button> : <Button onClick={() => {setVote(null)}}>Blanc</Button>}
+                { vote === false ? <Button hover={true} onClick={() => {setVote(false)}}>Non</Button> : <Button onClick={() => {setVote(false)}}>Non</Button>}
             </div>
-            {children}
-            <Button link={go} className=''>Send</Button>
+            <div className='py-5 flex items-center justify-center flex-row gap-2'>
+                <ButtonScroll>Précédent</ButtonScroll>
+                <Button link={sendVote} className=''>Send</Button>
+            </div>
         </div>
     )
 }
@@ -83,7 +81,6 @@ function Info({page, children}) {
         return (
             <div className="w-full flex items-center justify-center flex-col">
                 <div className="text-center w-1/2 flex align-middle justify-center flex-col">
-                    <p className='py-5'>La CINOR s’est engagée au travers de son Plan Climat-Énergie Territorial (PCAET) à mener des actions tendant vers l’utilisation rationnelle de l’énergie, et à réduire ou à minima stabiliser ses consommations énergétiques.</p>
                     <p className='py-5'>La présente étude s’inscrit dans le cadre de l’action 1.1 prévue au PCAET : « Réaliser une étude de potentiel en énergies renouvelables et de récupération sur le territoire ». Lien vers le PCAETLa CINOR a choisi la SPL pour l’accompagner dans la réalisation de cette action via un contrat dédié.</p>
                 </div>
                 {children}
@@ -143,11 +140,8 @@ export default function Concertation() {
                     </div>
                 </div>
                 <div className="p-5 flex justify-center items-center">
-                    <p className="text-center text-3xl">
-                        Lorem ipsum dolor:<br />
-                        consectetur adipiscing elit.<br />
-                        Integer congue lacus orci, id posuere ante mattis vel.<br />
-                        euismod leo interdum egestas vel in augue.<br />
+                    <p className="text-center text-2xl p-5 font-bold">
+                    La CINOR s’est engagée au travers de son Plan Climat-Énergie Territorial (PCAET) à mener des actions tendant vers l’utilisation rationnelle de l’énergie, et à réduire ou à minima stabiliser ses consommations énergétiques.
                     </p>
                 </div>
                 <div className="w-screen flex justify-center">
