@@ -19,8 +19,7 @@ const LoginPage = () => {
             type="text"
             placeholder="Enter your username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+            onChange={(e) => setUsername(e.target.value)}/>
         </div>
         <div className="input-container">
           <label>Password:</label>

@@ -1,3 +1,6 @@
+import React from 'react';
+import MapComponent from '../components/Map/Map.js';
+
 
 export default function Concertation() {
     return (
@@ -23,6 +26,7 @@ export default function Concertation() {
                 </div>
                 <div className="grid grid-cols-2 gap-4 h-max w-screen">
                     <div className="flex justify-center items-center">
+                        <MapComponent />
                     </div>
                     <div className="flex justify-center items-center"><h1>02</h1></div>
                 </div>
