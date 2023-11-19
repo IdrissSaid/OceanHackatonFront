@@ -32,7 +32,7 @@ const MapComponent = () => {
     };
   }, []); // Empty dependency array to run the effect only once
 
-  return <div id="map" style={{ width: '100%', height: '400px' }}></div>;
+  return <div id="map" style={{ width: '100%', height: '100%' }}></div>;
 };
 
 export default MapComponent;

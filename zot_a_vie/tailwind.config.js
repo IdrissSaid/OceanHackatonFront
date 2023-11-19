@@ -11,6 +11,7 @@ module.exports = {
         'ConnectBg': "url('/eq_cinor_nuit.jpg')",
       },
       colors: {
+        'CINOR-dark-green': '#0E2327',
         'primary': '#46BABA',
         'dark-blue': '#273443',
         'dark-green': '#294327',
