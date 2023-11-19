@@ -31,10 +31,12 @@ const SquareWithTextAndNumber = ({ text, number, borderColor, width }) => {
 const Dashboard = () => {
   const [voteData, setVoteData] = useState({
     total: 0,
-    positif : 0,
-    negatif : 0,
-    null : 0,
+    agree: 0,
+    disagree: 0,
+    dontknow: 0,
   });
+
+  const [totalVisits, setTotalVisits] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,7 +47,7 @@ const Dashboard = () => {
             'Content-Type': 'application/json',
           },
         });
-  
+
         if (response.ok) {
           const data = await response.json();
           setVoteData(data);
@@ -56,7 +58,14 @@ const Dashboard = () => {
         console.error('Une erreur s\'est produite lors de la requête :', error);
       }
     };
+
+    const fetchVisits = () => {
+      const storedVisits = localStorage.getItem('totalVisits');
+      setTotalVisits(storedVisits ? parseInt(storedVisits, 10) / 2 : 0);
+    };
+
     fetchData();
+    fetchVisits();
   }, []);
 
   return (
@@ -96,7 +105,7 @@ const Dashboard = () => {
             <SquareWithTextAndNumber text="Votes Blancs" number={voteData.dontknow} borderColor="#FFCC00"/>
           </div>
           <div className='mx-10 w-52'>
-            <SquareWithTextAndNumber text="Nombre Total De Visites" number={0}/>
+            <SquareWithTextAndNumber text="Nombre Total De Visites" number={totalVisits}/>
           </div>
         </div>
         <div className='mt-40 ml-10'>
