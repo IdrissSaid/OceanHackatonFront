@@ -9,7 +9,7 @@ function Concertation() {
     };
 
     return (
-        <div className="min-h-32 flex align-middle rounded-lg shadow-xl">
+        <div className="min-h-32 w-max flex align-middle rounded-lg shadow-xl">
             <div className="w-48">
                 <img src={Pp} alt="" className="w-full h-full object-cover rounded-lg" />
             </div>
@@ -29,12 +29,6 @@ export default function ConcertationsList() {
         <div className="rounded-lg p-10">
             <h1 className="text-xl font-bold">Concertations Citoyens en cours <a className="underline text-xs font-light decoration-solid" href="#">Voir plus</a></h1>
             <div className="p-5 rounded-lg overflow-scroll grid grid-cols-3 gap-8 shadow-xl">
-                <Concertation />
-                <Concertation />
-                <Concertation />
-                <Concertation />
-                <Concertation />
-                <Concertation />
                 <Concertation />
             </div>
         </div>

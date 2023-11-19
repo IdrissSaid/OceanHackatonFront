@@ -1,4 +1,7 @@
-import Button from "../components/Button";
+import React from 'react';
+import MapComponent from '../components/Map/Map.js';
+import ButtonScroll from "../components/ButtonScroll";
+
 
 export default function Concertation() {
     return (
@@ -18,7 +21,7 @@ export default function Concertation() {
                     </p>
                 </div>
                 <div className="w-screen flex justify-center">
-                    <Button scrollTo="2">Participer</Button>
+                    <ButtonScroll scrollTo="2">Participer</ButtonScroll>
                 </div>
             </section>
             <section id="2" className="h-screen px-3">
@@ -27,6 +30,7 @@ export default function Concertation() {
                 </div>
                 <div className="p-3 grid grid-cols-2 gap-4 w-full h-4/5">
                     <div className="flex justify-center items-center">
+                        <MapComponent />
                     </div>
                     <div className="grid grid-rows-3 py-10">
                         <div className="w-full grid grid-rows-2">
@@ -45,8 +49,8 @@ export default function Concertation() {
                             </table>
                         </div>
                         <div className="relative bottom-0 flex justify-center items-end gap-8">
-                            <Button scrollTo="1">Précédent</Button>
-                            <Button scrollTo="3">Précédent</Button>
+                            <ButtonScroll scrollTo="1">Précédent</ButtonScroll>
+                            <ButtonScroll scrollTo="3">Précédent</ButtonScroll>
                         </div>
                     </div>
                 </div>
