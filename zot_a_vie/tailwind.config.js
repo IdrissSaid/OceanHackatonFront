@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         'logo': 'url(/src/img/logoCinor.png)',
-        'bg': 'url(/src/img/eolienne.jpg)'
+        'bg': 'url(/src/img/eolienne.jpg)',
+        'ConnectBg': "url('/eq_cinor_nuit.jpg')",
       },
       colors: {
         'primary': '#46BABA',
