@@ -5,10 +5,10 @@ import ButtonScroll from "../components/ButtonScroll";
 
 export default function Concertation() {
     return (
-        <div className=" overscroll-none">
-            <section id="1" className="h-screen">
-                <div className="bg-bg w-screen h-2/3 bg-no-repeat bg-cover relative">
-                    <div class="absolute bottom-0 bg-black/20 w-full h-24 flex justify-center items-center">
+        <div className="">
+            <section id="1" className="h-screen p-8">
+                <div className="bg-bg w-full h-2/3 bg-no-repeat bg-cover relative rounded-xl shadow-2xl">
+                    <div class="absolute bottom-0 bg-black/20 w-full h-24 flex justify-center items-center rounded-xl">
                         <h1 class="text-white font-semibold text-4xl text-center"> L’éolien le future de la production électrique de la CINORD </h1>
                     </div>
                 </div>
