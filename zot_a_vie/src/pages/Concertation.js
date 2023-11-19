@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MapComponent from '../components/Map/Map.js';
 import ButtonScroll from "../components/ButtonScroll";
 import Button from "../components/Button";
@@ -30,6 +30,36 @@ function Star({ initialRating = 0, onRatingChange })
 }
 
 function Vote({children}) {
+    const [vote, setVote] = useState(false);
+    const navigate = useNavigate();
+
+    const sendVote = async () => {
+        try {
+        const response = await fetch('http//localhost:8080/vote/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: {
+                userId: 1,
+                value: vote,
+            },
+        });
+        if (!response.ok) {
+            console.error('Vote failed');
+        } else {
+            console.log('Vote sent successfully');
+        }
+        } catch (error) {
+            console.error('Error sending vote:', error);
+        }
+    };
+
+    const go = () => {
+        sendVote();
+        navigate('/')
+    }
+
     return (
         <div className=' w-full flex items-center flex-col h-full'>
             <div className=' h-4/5 flex items-center justify-center flex-col'>
@@ -37,7 +67,13 @@ function Vote({children}) {
                 <h4 className=' my-3'>Social {<Star />}</h4>
                 <h4 className=' my-3'>Budget {<Star />}</h4>
             </div>
+            <div className='py-5 flex items-center justify-center flex-row gap-2'>
+                <Button onClick={setVote(true)}>Oui</Button>
+                <Button onClick={setVote(null)}>Blanc</Button>
+                <Button onClick={setVote(false)}>Non</Button>
+            </div>
             {children}
+            <Button link={go} className=''>Send</Button>
         </div>
     )
 }
@@ -80,12 +116,6 @@ function Info({page, children}) {
 }
 
 export default function Concertation() {
-
-    const navigate = useNavigate();
-    const go = () => {
-        navigate('/')
-    }
-
     let [page, setPage] = useState(0)
 
     let title = [
@@ -145,8 +175,7 @@ export default function Concertation() {
                                 { title[page] !== "Vote" ?
                                     <ButtonScroll onClick={() => {
                                         changePage(1, false)
-                                    }}>Suivant</ButtonScroll> :
-                                    <Button link={go} className=''>Send</Button>
+                                    }}>Suivant</ButtonScroll> : <span></span>
                                 }
                             </div>
                         </Info>
