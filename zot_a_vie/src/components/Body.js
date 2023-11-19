@@ -15,15 +15,19 @@ export default function Body () {
                 <div className="flex justify-center gap-48">
                     <Box>
                         <h1 className="text-center font-bold text-xl">Voir les<br />Concertations Citoyens</h1>
-                        <Button>
-                            Consulter
-                        </Button>
+                        <div className="flex justify-center">
+                            <Button>
+                                Consulter
+                            </Button>
+                        </div>
                     </Box>
                     <Box>
                         <h1 className="text-center font-bold text-xl">Voir les<br />Actualités</h1>
-                        <Button>
-                            Actualités
-                        </Button>
+                        <div className="flex justify-center">
+                            <Button>
+                                Actualités
+                            </Button>
+                        </div>
                     </Box>
                 </div>
                 <section>
