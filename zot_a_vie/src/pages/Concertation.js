@@ -1,15 +1,15 @@
 import React from 'react';
 import MapComponent from '../components/Map/Map.js';
 import ButtonScroll from "../components/ButtonScroll";
-
+import ArticlesList from '../components/Articles/ArticlesList.js'
 
 export default function Concertation() {
     return (
         <div className="">
             <section id="1" className="h-screen p-8">
                 <div className="bg-bg w-full h-2/3 bg-no-repeat bg-cover relative rounded-xl shadow-2xl">
-                    <div class="absolute bottom-0 bg-black/20 w-full h-24 flex justify-center items-center rounded-xl">
-                        <h1 class="text-white font-semibold text-4xl text-center"> L’éolien le future de la production électrique de la CINORD </h1>
+                    <div className="absolute bottom-0 bg-black/20 w-full h-24 flex justify-center items-center rounded-xl">
+                        <h1 className="text-white font-semibold text-4xl text-center"> L’éolien le future de la production électrique de la CINORD </h1>
                     </div>
                 </div>
                 <div className="p-5 flex justify-center items-center">
@@ -42,11 +42,11 @@ export default function Concertation() {
                             </div>
                         </div>
                         <div className="w-full flex justify-center">
-                            <table>
+                            {/* <table>
                                 <li className="text-xl">Parc éolien Saint - Suzanne</li>
                                 <li className="text-xl"></li>
                                 <li className="text-xl">Parc éolien Saint - Rose</li>
-                            </table>
+                            </table> */}
                         </div>
                         <div className="relative bottom-0 flex justify-center items-end gap-8">
                             <ButtonScroll scrollTo="1">Précédent</ButtonScroll>
@@ -55,9 +55,7 @@ export default function Concertation() {
                     </div>
                 </div>
             </section>
-            <section id="3" className="h-screen px-3">
-
-            </section>
+            <ArticlesList />
             <div className="grid grid-rows-4 gap-1 fixed top-1/2 right-3">
                 <div className=" bg-slate-400 w-3 h-3 rounded-full"></div>
                 <div className=" bg-primary w-3 h-3 rounded-full"></div>
