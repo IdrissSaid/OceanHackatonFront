@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MapComponent from '../components/Map/Map.js';
 import ButtonScroll from "../components/ButtonScroll";
+import ArticlesList from '../components/Articles/ArticlesList.js'
 import Button from "../components/Button";
 import { useNavigate } from 'react-router-dom';
 
@@ -138,8 +139,8 @@ export default function Concertation() {
         <div className="">
             <section id="0" className="h-screen">
                 <div className="bg-bg w-full h-2/3 bg-no-repeat bg-cover relative rounded-xl shadow-2xl">
-                    <div class="absolute bottom-0 bg-black/20 w-full h-24 flex justify-center items-center rounded-xl">
-                        <h1 class="text-white font-semibold text-4xl text-center">L’éolien le future de la production électrique de la CINOR</h1>
+                    <div className="absolute bottom-0 bg-black/20 w-full h-24 flex justify-center items-center rounded-xl">
+                        <h1 className="text-white font-semibold text-4xl text-center"> L’éolien le future de la production électrique de la CINORD </h1>
                     </div>
                 </div>
                 <div className="p-5 flex justify-center items-center">
@@ -178,6 +179,7 @@ export default function Concertation() {
                                     }}>Suivant</ButtonScroll> : <span></span>
                                 }
                             </div>
+                        <ArticlesList />
                         </Info>
                     </div>
                 </div>
